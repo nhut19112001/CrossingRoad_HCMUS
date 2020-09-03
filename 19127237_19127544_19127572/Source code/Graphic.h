@@ -3,10 +3,6 @@
 #include"Game.h"
 
 
-
-//Hàm chiến thắng
-void Win();
-
 //Hàm mở đầu
 void Begin();
 

@@ -29,6 +29,9 @@ void ProcessDead();
 //Hàm xử lý khi chiến thắng
 void ProcessFinish(POINT& p);
 
+//Hàm chiến thắng
+void Win();
+
 //HÀm kiểm tra va chạm
 bool IsImpact(const POINT& p, int d);
 

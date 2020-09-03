@@ -98,8 +98,8 @@ void ProcessDead()
 	system("cls");
 	Dead();
 	SetColor(Cyan);
-	GotoXY(70, 36); cout << "PRESS Y TO PLAY AGAIN";
-	GotoXY(70, 37); cout << "PRESS ENTER TO EXIT";
+	GotoXY(74, 36); cout << "PRESS Y TO PLAY AGAIN";
+	GotoXY(74, 37); cout << "PRESS ENTER TO EXIT";
 	if (score == 0)
 		D0(70, 30);
 	if (score == 100)
@@ -118,6 +118,29 @@ void ProcessFinish(POINT& p)
 	check++;
 	score += 100;
 		
+}
+
+void Win() {
+	system("cls");
+	STATE = 0;
+	PlaySound(TEXT("Win.wav"), NULL, SND_ASYNC);
+	for (int j = 0; j < 2; j++)
+	{
+		for (int i = 9; i < 12; i++)
+		{
+			GotoXY(40, 15);  SetColor(i); cout << "   :::    :::    ::::::::      :::     :::     :::       :::  ::::::::::   :::::      :::";
+			GotoXY(40, 16); SetColor(i); cout << "  :+:    :+:   :+:      :+:   :+:     :+:     :+:       :+:     :+:       :+:+:      :+: ";
+			GotoXY(40, 17); SetColor(i); cout << "  +:+  +:+    +:+      +:+   +:+     +:+     +:+       +:+     +:+       :+:+:+    +:+   ";
+			GotoXY(40, 18); SetColor(i); cout << "  +#++:      +#+      +:+   +#+     +:+     +#+  +:+  +#+     +#+       +#+  +:+  +#+    ";
+			GotoXY(40, 19); SetColor(i); cout << "  +#+       +#+      +#+   +#+     +#+     +#+ +#+#+ +#+     +#+      +#+    +#+ #+#     ";
+			GotoXY(40, 20); SetColor(i); cout << " #+#       #+#      #+#   #+#     #+#      #+#+# #+#+#      #+#      #+#     #+#+#       ";
+			GotoXY(40, 21); SetColor(i); cout << "###         ########       ########         ###   ###   ########### ###      ####        ";
+			Sleep(200);
+		}
+	}
+	D300(70, 30);
+	GotoXY(74, 36); cout << "PRESS Y TO PLAY AGAIN";
+	GotoXY(74, 37); cout << "PRESS ENTER TO EXIT";
 }
 
 bool IsImpact(const POINT& p,int d)
@@ -347,18 +370,6 @@ void About()
 	GotoXY(70, 31); cout << "SUBJECT TEACHER: TRUONG TOAN THINH.";
 	SetColor(White);
 	GotoXY(70, 35); cout << "R -> RETURN TO MAIN MENU.";
-	GotoXY(70, 36); cout << "E -> EXIT GAME.";
-	int temp2;
-	temp2 = toupper(_getch());
-	if (temp2 == 'R')
-	{
-		ScreenStartGame();
-	}
-	if (temp2 == 'E')
-	{
-		ResetData();
-		ExitGame();
-	}
 	
 }
 
@@ -369,7 +380,7 @@ void ScreenStartGame()
 	removeScrollBar();
 	AnTroChuot();
 	Begin();
-	int temp,temp1;
+	int temp,temp1,temp2;
 	srand(time(NULL));
 	temp1 = toupper(_getch());
 	if (temp1 == 'T')
@@ -381,15 +392,18 @@ void ScreenStartGame()
 	else if (temp1 == 'A')
 	{
 		About();
+		system("Pause");
+		ScreenStartGame();
+	}
+	else if(temp1=='S')
+	{
+		StartGame();
 	}
 	else if(temp1=='E')
 	{
+
 		ResetData();
 		ExitGame();
-	}
-	else 
-	{
-		StartGame();
 	}
 	thread t1(SubThread);
 	while (1)

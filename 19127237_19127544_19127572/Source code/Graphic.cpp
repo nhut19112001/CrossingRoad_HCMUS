@@ -2,27 +2,8 @@
 
 
 
-void Win() {
-	system("cls");
-	PlaySound(TEXT("Win.wav"), NULL, SND_ASYNC);
-	for (int j = 0; j < 2; j++)
-		{
-			for (int i = 9; i < 12; i++)
-			{
-				GotoXY(40, 15);  SetColor(i); cout << "   :::    :::    ::::::::      :::     :::     :::       :::  ::::::::::   :::::      :::";
-				GotoXY(40, 16); SetColor(i); cout << "  :+:    :+:   :+:      :+:   :+:     :+:     :+:       :+:     :+:       :+:+:      :+: ";
-				GotoXY(40, 17); SetColor(i); cout << "  +:+  +:+    +:+      +:+   +:+     +:+     +:+       +:+     +:+       :+:+:+    +:+   ";
-				GotoXY(40, 18); SetColor(i); cout << "  +#++:      +#+      +:+   +#+     +:+     +#+  +:+  +#+     +#+       +#+  +:+  +#+    ";
-				GotoXY(40, 19); SetColor(i); cout << "  +#+       +#+      +#+   +#+     +#+     +#+ +#+#+ +#+     +#+      +#+    +#+ #+#     ";
-				GotoXY(40, 20); SetColor(i); cout << " #+#       #+#      #+#   #+#     #+#      #+#+# #+#+#      #+#      #+#     #+#+#       ";
-				GotoXY(40, 21); SetColor(i); cout << "###         ########       ########         ###   ###   ########### ###      ####        ";
-				Sleep(200);
-			}
-		}
-	D300(70, 30);
-	GotoXY(70, 36); cout << "PRESS Y TO PLAY AGAIN";
-	GotoXY(70, 37); cout << "PRESS ENTER TO EXIT";
-}
+
+
 
 
 void Begin() {
@@ -63,7 +44,7 @@ void Begin() {
 			GotoXY(70, 24); SetColor(i - 2);
 			cout << "-WELCOME TO CROSS THE ROAD-";
 			GotoXY(74, 26); SetColor(i - 2);
-			cout << "Press ENTER to PLAY. ";
+			cout << "Press S to PLAY. ";
 			GotoXY(74, 27); SetColor(i - 2);
 			cout << "Press T to LOAD GAME. ";
 			GotoXY(74, 28); SetColor(i-2);
@@ -103,7 +84,7 @@ void Begin() {
 		cout << "-WELCOME TO CROSS THE ROAD-";
 		SetColor(White);
 		GotoXY(74, 26); 
-		cout << "Press ENTER To PLAY. ";
+		cout << "Press S To PLAY. ";
 		GotoXY(74, 27); 
 		cout << "Press T to LOAD GAME. ";
 		GotoXY(74, 28); 
