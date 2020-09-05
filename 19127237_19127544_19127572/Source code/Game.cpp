@@ -482,8 +482,6 @@ void Save()
 		f1 << endl;
 		f1 << check;
 		f1 << endl;
-		f1 << A.x << " " << A.y<<endl;
-		f1 << B.x << " " << B.y << endl;
 		f1.close();
 		f2.close();
 
@@ -508,8 +506,6 @@ void LoadGame(string data)
 		f >> STATE;
 		f >> score;
 		f >> check;
-		f >>A.x >> A.y;
-		f >> B.x >>B.y;
 	}
 	f.close();
 }
